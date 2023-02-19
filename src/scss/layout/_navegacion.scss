@@ -1,0 +1,33 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+.barra {
+    position: relative;
+    display:  flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+
+    .header-logotipo {
+        width: 250px;
+    }
+
+    .menu-desplegable {
+        display: none;
+        width: 3rem;
+        margin-right: 1rem;
+        cursor: pointer;
+
+        @include m.tablet {
+            display: block;
+        }
+    }
+}
+
+.navegacion {
+
+    a {
+        margin: 0 1.5rem;
+        font-size: 1.8rem;
+        color: v.$blanco;
+    }
+}

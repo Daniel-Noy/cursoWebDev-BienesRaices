@@ -1,0 +1,43 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.anuncios-contenedor {
+    @include m.grid(3, 2rem);
+    
+    @include m.tablet {
+        grid-template-columns: 1fr;
+    }
+
+    
+}
+
+.anuncio {
+    border: 1px solid v.$gris;
+    background-color: lighten(v.$gris, $amount: 6);
+
+    .anuncio-informacion {
+        padding: 2rem;    
+    
+        h3 {
+            margin: 0;
+        }
+        .costo {
+            font-size: 2.5rem;
+            font-weight: v.$bold;
+            color: v.$verde;
+        }
+    }
+}
+
+
+
+.habitaciones{
+    margin-top: 2rem;
+
+    @include m.grid(3, 1fr);
+
+    .habitacion {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

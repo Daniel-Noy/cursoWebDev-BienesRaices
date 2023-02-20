@@ -1,0 +1,21 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.nosotros {
+    @include m.grid(2, 2rem);
+
+    @include m.tablet {
+        grid-template-columns: 1fr;
+    }
+
+    .nosotros-informacion {
+        h2 {
+            font-size: 2rem;
+            font-weight: v.$bold;
+        }
+
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+}

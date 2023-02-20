@@ -1,0 +1,25 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.contactanos {
+    padding: v.$separacion;
+
+    background-image: url(../img/encuentra.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .contactanos-informacion {
+        color: v.$blanco;
+        text-align: center;
+
+        h2 {
+            margin: 0;
+            font-weight: v.$bold;
+        }
+
+        p {
+            margin: 2rem 0;
+        }
+    }
+}

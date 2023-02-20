@@ -34,7 +34,7 @@
 .habitaciones{
     margin-top: 2rem;
 
-    @include m.grid(3, 1fr);
+    @include m.grid(3, 2rem);
 
     .habitacion {
         display: flex;

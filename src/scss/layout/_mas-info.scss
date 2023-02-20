@@ -1,0 +1,90 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.mas-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+
+    @include m.tablet {
+        grid-template-columns: 1fr;
+    }
+}
+
+.blog-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: v.$separacion;
+
+}
+
+.blog-entrada {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+
+    @include m.tablet {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .blog-informacion {
+        h3 {
+            margin: 0;
+            text-align: left;
+            font-size: 2.5rem;
+            font-weight: v.$bold;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 13rem;
+                height: .5rem;
+                background-color: v.$verde;
+            }
+        }
+
+        .ficha {
+            margin-block: 1.5rem;
+        }
+    }
+}
+
+.testimoniales {
+
+    .testimonial {
+        padding: 2rem 5rem;
+
+        font-size: 2.4rem;
+        line-height: 1.8;
+        border-radius: 1.5rem;
+        color: v.$blanco;
+        background-color: v.$verde;
+
+        blockquote {
+            position: relative;
+            padding: 0 2rem 0 5rem;
+            margin-bottom: 1rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: -2rem;
+                display: block;
+                width: 8rem;
+                height: 6rem;
+
+                background-image: url(../img/iconos/comilla.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+        }
+
+        p {
+            text-align: right;
+            font-weight: v.$bold;
+        }
+    }
+    
+}

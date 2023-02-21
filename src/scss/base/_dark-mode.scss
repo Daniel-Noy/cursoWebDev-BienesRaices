@@ -4,6 +4,9 @@
     color: v.$blanco;
     background-color: darken(v.$gris-oscuro, 10);
 
+    .dark-mode-boton {
+        filter: none;
+    }
 
     .anuncios-contenedor {
         .anuncio {
@@ -15,6 +18,19 @@
             img {
                 filter: invert(100%);
             }
+        }
+    }
+
+    .formulario-contacto {
+        p,
+        legend,
+        select {
+            color: v.$blanco;
+        }
+
+        input:not([type="submit"]), textarea {
+            color: v.$blanco;
+            background-color: transparent;
         }
     }
 }

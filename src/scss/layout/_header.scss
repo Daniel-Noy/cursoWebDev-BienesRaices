@@ -27,7 +27,7 @@
             align-items: center;
             width: 100%;
 
-            // background-color: v.$gris-oscuro;
+            background-color: v.$gris-oscuro;
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             transition: all .4s ease;
         }
@@ -41,11 +41,14 @@
                 color: v.$verde;
             }
         }
+
+        &.no-background {
+            background-color: transparent;
+        }
     }
     .mostrar {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-
 
 }
 

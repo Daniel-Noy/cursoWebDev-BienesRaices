@@ -42,10 +42,10 @@ function versionWebp() {
 
 function watchArchivos() {
     watch(paths.js, javascript);
-    watch(paths.imagenes, imagenes);
-    watch(paths.imagenes, versionWebp);
+    // watch(paths.imagenes, imagenes);
+    // watch(paths.imagenes, versionWebp);
 }
 
 exports.watchArchivos = watchArchivos;
 exports.imagenes = parallel(imagenes, versionWebp);
-exports.default = parallel(javascript); 
+exports.default = javascript; 

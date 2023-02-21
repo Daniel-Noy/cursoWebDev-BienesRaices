@@ -15,6 +15,7 @@
     }
 }
 .boton-verde {
+    display: inline-block;
     background-color: v.$verde;
     
     &:hover {

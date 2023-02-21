@@ -1,0 +1,45 @@
+@use '../base/variables' as v;
+
+.formulario-contacto {
+
+    fieldset {
+        margin-bottom: 1rem;
+    }
+
+    legend {
+        font-size: 2rem;
+        color: v.$gris-oscuro;
+    }
+    label {
+        font-weight: v.$bold;
+        text-transform: uppercase;
+    }
+    input:not([type="radio"], [type="submit"]),
+    textarea,
+    select {
+        display: block;
+        margin: 1rem .5;
+        width: 100%;
+        padding: .5rem;
+
+        border-radius: .5rem;
+        border: 1px solid v.$gris;
+    }
+
+    textarea {
+        max-width: 100px;
+        min-width: 100%;
+    }
+    select {
+        background-color: transparent;
+    }
+    p {
+        font-size: 1.4rem;
+        color: v.$gris-oscuro;
+    }
+
+    [type="radio"] {
+        margin: 0 1rem;
+    }
+
+}

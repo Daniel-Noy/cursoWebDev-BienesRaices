@@ -1,0 +1,20 @@
+@use './variables' as v;
+
+.dark-mode {
+    color: v.$blanco;
+    background-color: darken(v.$gris-oscuro, 10);
+
+
+    .anuncios-contenedor {
+        .anuncio {
+            border-color: darken(v.$gris-oscuro, 13);
+            background-color: v.$gris-oscuro;
+        }
+
+        .habitaciones {
+            img {
+                filter: invert(100%);
+            }
+        }
+    }
+}

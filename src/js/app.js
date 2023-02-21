@@ -5,11 +5,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 function eventlisteners() {
     const botonMenu = document.querySelector('.menu-desplegable');
-    const menuDesplegable = document.querySelector('.nav-header');
+    const darkBoton = document.querySelector('.dark-mode-boton');
 
     botonMenu.addEventListener('click', navegacionResponsive);
+    darkBoton.addEventListener('click', modoOscuro);
 }
 
 function navegacionResponsive() {
-    console.log('nav');
+    const menuDesplegable = document.querySelector('.nav-header');
+
+    menuDesplegable.classList.toggle('mostrar');
+}
+
+function modoOscuro() {
+    document.body.classList.toggle('dark-mode');
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
 
     <title>Inicio</title>
 </head>
@@ -14,13 +14,13 @@
         <div class="header-contenido || contenedor">
             <div class="barra">
                 <a href="/" class="header-logotipo">
-                    <img src="./build/img/iconos/logo.svg" alt="Logo bienes raices">
+                    <img src="/build/img/iconos/logo.svg" alt="Logo bienes raices">
                 </a>
 
-                <img class="menu-desplegable" src="./build/img/iconos/barras.svg" alt="Menu desplegable">
+                <img class="menu-desplegable" src="/build/img/iconos/barras.svg" alt="Menu desplegable">
                 
-                <nav class="navegacion nav-header no-background">
-                    <img class="dark-mode-boton" src="./build/img/iconos/dark-mode.svg" alt="Modo oscuro">
+                <nav class="navegacion nav-header <?php echo $inicio ? 'no-background' : '' ?>">
+                    <img class="dark-mode-boton" src="/build/img/iconos/dark-mode.svg" alt="Modo oscuro">
                     <a href="nosotros.php">Nosotros</a>
                     <a href="anuncios.php">Anuncios</a>
                     <a href="blog.php">Blog</a>

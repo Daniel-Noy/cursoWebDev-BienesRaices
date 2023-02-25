@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="/build/css/app.css">
 
-    <title>Inicio</title>
+    <title>Bienes Raices</title>
 </head>
 <body>
     <header class="header <?php echo $inicio ? 'inicio': ''; ?>">
@@ -21,10 +21,10 @@
                 
                 <nav class="navegacion nav-header <?php echo $inicio ? 'no-background' : '' ?>">
                     <img class="dark-mode-boton" src="/build/img/iconos/dark-mode.svg" alt="Modo oscuro">
-                    <a href="nosotros.php">Nosotros</a>
-                    <a href="anuncios.php">Anuncios</a>
-                    <a href="blog.php">Blog</a>
-                    <a href="contacto.php">Contacto</a>
+                    <a href="/nosotros.php">Nosotros</a>
+                    <a href="/anuncios.php">Anuncios</a>
+                    <a href="/blog.php">Blog</a>
+                    <a href="/contacto.php">Contacto</a>
                 </nav>
             </div> <!--barra-->
 

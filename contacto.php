@@ -12,7 +12,7 @@ incluirTemplate('header');
 
             <h2>Llena el formulario de contacto</h2>
 
-            <form class="formulario-contacto">
+            <form class="formulario">
                 <fieldset>
                     <legend>Informacion Personal</legend>
 

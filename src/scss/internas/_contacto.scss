@@ -1,6 +1,6 @@
 @use '../base/variables' as v;
 
-.formulario-contacto {
+.formulario {
 
     fieldset {
         margin-bottom: 1rem;
@@ -40,6 +40,10 @@
 
     [type="radio"] {
         margin: 0 1rem;
+    }
+
+    [type="submit"] {
+        padding-block: 1rem;
     }
 
 }

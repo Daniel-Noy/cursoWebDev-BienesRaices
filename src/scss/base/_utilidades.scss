@@ -5,11 +5,11 @@
     margin-top: calc(v.$separacion / 2);
     margin-bottom: calc(v.$separacion / 2);
 }
+
+// Alineacion
 .contenido-centrado {
     max-width: 800px;
 }
-
-// Alineacion
 .alinear-derecha {
     text-align: end;
 }
@@ -17,23 +17,4 @@
 // Texto
 .txt-resaltado {
     color: v.$amarillo;
-}
-
-// Alertas
-.alerta {
-    margin: 1rem 0;
-    padding: 1rem 0;
-
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    color: v.$blanco;
-
-    &.error {
-        background-color: v.$rojo;
-    }
-
-    &.exito {
-        background-color: v.$verde;
-    }
 }

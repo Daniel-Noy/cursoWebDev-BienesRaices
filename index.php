@@ -57,7 +57,7 @@ incluirTemplate('header', true);
                             </div> <!--habitacion-->
                         </div>  <!--habitaciones-->
 
-                        <a href="" class="ver-anuncio || boton boton-anuncio">Ver propiedad</a>
+                        <a href="" class="ver-anuncio || boton-amarillo-block">Ver propiedad</a>
                     </div> <!--informacion-->
                 </div> <!--anuncio-->
 
@@ -86,7 +86,7 @@ incluirTemplate('header', true);
                             </div> <!--habitacion-->
                         </div>  <!--habitaciones-->
 
-                        <a href="" class="ver-anuncio || boton boton-anuncio">Ver propiedad</a>
+                        <a href="" class="ver-anuncio || boton-amarillo-block">Ver propiedad</a>
                     </div> <!--informacion-->
                 </div> <!--anuncio-->
 
@@ -115,13 +115,13 @@ incluirTemplate('header', true);
                             </div> <!--habitacion-->
                         </div>  <!--habitaciones-->
 
-                        <a href="" class="ver-anuncio || boton boton-anuncio">Ver propiedad</a>
+                        <a href="" class="ver-anuncio || boton-amarillo-block">Ver propiedad</a>
                     </div> <!--informacion-->
                 </div> <!--anuncio-->
             </div>
 
             <div class="ver-todas || alinear-derecha">
-                <a href="anuncios.html" class="boton boton-verde">Ver todos</a>
+                <a href="anuncios.html" class=" boton-verde">Ver todos</a>
             </div>
         </section>
     </main>
@@ -130,7 +130,7 @@ incluirTemplate('header', true);
         <div class="contactanos-informacion || contenedor seccion">
             <h2>Encuentra la casa de tus sueños</h2>
             <p>Llena el formulario de contacto y un asesor se pondrá en contacto contigo a la brevedad</p>
-            <a href="contacto.html" class="boton boton-contacto">Contactanos</a>
+            <a href="contacto.html" class="boton-amarillo">Contactanos</a>
         </div>
     </section>
 

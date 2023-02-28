@@ -32,4 +32,8 @@
     &.error {
         background-color: v.$rojo;
     }
+
+    &.exito {
+        background-color: v.$verde;
+    }
 }

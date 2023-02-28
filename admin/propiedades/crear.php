@@ -21,9 +21,17 @@
     
 
 
+
     // Ejecuta el codigo despues de que el cliente envia el formulario
     if($_SERVER["REQUEST_METHOD"] === 'POST') {
 
+        // echo '<pre>';
+        // var_dump($_POST);
+        // echo '</pre>';
+
+        // echo '<pre>';
+        // var_dump($_FILES);
+        // echo '</pre>';
         // Guarda los datos obtenidos del formulario con el metodo post
         $titulo = mysqli_real_escape_string( $db, $_POST["titulo"]);
         $precio = mysqli_real_escape_string( $db, $_POST["precio"]);
@@ -32,6 +40,13 @@
         $wc = mysqli_real_escape_string( $db, $_POST["wc"]);
         $estacionamiento = mysqli_real_escape_string( $db, $_POST["estacionamiento"]);
         $vendedor = mysqli_real_escape_string( $db, $_POST["vendedor"]);
+        
+        // Asignar una imagen a una variable
+        $imagen = $_FILES["imagen"];
+        
+        // echo '<pre>';
+        // var_dump($imagen);
+        // echo '</pre>';
 
         // Valida que cada input este llenado correctamente
         if(!$titulo) {
@@ -55,21 +70,39 @@
         if(!$vendedor) {
             $errores[] = "Debes elegir al vendedor";
         }
-
+        if(!$imagen["name"]) {
+            $errores[] = "La imagen es obligatoria";
+        }
         
-
         // Valida que no haya errores antes de enviar la peticion a la base de datos
         if(empty($errores)){
-            $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedorId) VALUES ('{$titulo}', '{$precio}', '{$descripcion}', '{$habitaciones}', '{$wc}', '{$estacionamiento}', '{$fecha}', '{$vendedor}');";
+
+            //* SUBIDA DE ARCHIVOS
+            //Crear una carpeta
+            $carpetaImagenes = '../../imagenes';
+
+            if(!is_dir($carpetaImagenes)) {
+                mkdir($carpetaImagenes);
+                
+            }
+
+            // Generar nombre unico
+            $extensionImagen = pathinfo($imagen["name"], PATHINFO_EXTENSION);
+            $nombreImagen = md5( uniqid( rand(), true ) ) . ".{$extensionImagen}";
+            
+            // Subir la imagen al servidor
+            move_uploaded_file($imagen["tmp_name"], "$carpetaImagenes/$nombreImagen");
+            
+            // Insertar datos en la base de datos
+            $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedorId) VALUES ('{$titulo}', '{$precio}', '{$nombreImagen}', '{$descripcion}', '{$habitaciones}', '{$wc}', '{$estacionamiento}', '{$fecha}', '{$vendedor}');";
             
             $resultado = mysqli_query($db, $query);
         }   
         
         if($resultado) {
-            header('Location: /admin');
+            header('Location: /admin?resultado=1');
         }
-    }
-    
+    }    
     require '../../includes/funciones.php';
     incluirTemplate('header');
 ?>
@@ -86,7 +119,7 @@
 
         <?php } ?>
 
-        <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Informacion General</legend>
 
@@ -107,15 +140,14 @@
                 <label for="imagen">Imagen</label>
                 <input type="file" 
                 id="imagen" 
+                name="imagen"
                 accept="image/jpeg, image/png">
 
                 <label for="descripcion">Descripcion:</label>
                 <textarea 
                 id="descripcion" 
                 name="descripcion" 
-                rows="10"> 
-                    <?php echo $descripcion; ?>
-                </textarea>
+                rows="10"><?php echo $descripcion; ?></textarea>
             </fieldset>
             
             <fieldset>

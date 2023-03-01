@@ -3,10 +3,9 @@
     require '../includes/config/database.php';
     $db = conectarDB();
 
-    // Guarda la peticion SQL en una variable
-    $query = "SELECT id, titulo, precio, imagen FROM propiedades";
-    // Realiza la consulta a la base de datos
-    $consulta = mysqli_query($db, $query); 
+    $query = "SELECT id, titulo, precio, imagen FROM propiedades"; // Guarda la el query SQL en una variable
+    
+    $consulta = mysqli_query($db, $query); // Realiza la consulta a la base de datos
 
     // Guarda los datos del metodo get
     $resultado = $_GET["resultado"] ?? null;
@@ -20,8 +19,9 @@
 
         <?php if($resultado === "1") { // Valida si se obtuvo un resultado con el metodo get ?> 
             <p class="alerta exito">Propiedad publicada correctamente</p>
+        <?php } else if($resultado === "2") {?>
+            <p class="alerta advertencia">Propiedad actualizada correctamente</p>
         <?php } ?>
-
         <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
 
         <table class="propiedades">
@@ -44,7 +44,7 @@
                     <td>$<?php echo $propiedad["precio"] ?></td>
                     <td>
                         <a class="boton-rojo-block" href="">Eliminar</a>
-                        <a class="boton-amarillo-block" href="">Actualizar</a>
+                        <a class="boton-amarillo-block" href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad["id"]; ?>">Actualizar</a>
                     </td>
                 </tr>
                 <?php } ?>
@@ -53,5 +53,7 @@
     </main>
 
 <?php
-    incluirTemplate('footer')
+    mysqli_close($db);
+
+    incluirTemplate('footer');
 ?>

@@ -21,16 +21,25 @@
         }
     }
 
-    .formulario-contacto {
+
+    .formulario {
         p,
         legend,
         select {
             color: v.$blanco;
         }
+        
+        fieldset {
+        color: v.$gris;
+        border-color: v.$gris;
+        }
 
-        input:not([type="submit"]), textarea {
+        input:not([type="radio"], [type="submit"]),
+        textarea,
+        select {
             color: v.$blanco;
-            background-color: transparent;
+            border-color: v.$gris;
+            background-color: v.$gris-oscuro;
         }
     }
 }

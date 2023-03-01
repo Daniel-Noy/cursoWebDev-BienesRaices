@@ -18,8 +18,8 @@
     textarea,
     select {
         display: block;
-        margin: 1rem .5;
         width: 100%;
+        margin-bottom: 1rem;
         padding: .5rem;
 
         border-radius: .5rem;
@@ -29,9 +29,6 @@
     textarea {
         max-width: 100px;
         min-width: 100%;
-    }
-    select {
-        background-color: transparent;
     }
     p {
         font-size: 1.4rem;

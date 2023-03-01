@@ -2,11 +2,13 @@
 
     require '../includes/config/database.php';
     $db = conectarDB();
-    $query = "SELECT id, titulo, precio, imagen FROM propiedades";
 
+    // Guarda la peticion SQL en una variable
+    $query = "SELECT id, titulo, precio, imagen FROM propiedades";
+    // Realiza la consulta a la base de datos
     $consulta = mysqli_query($db, $query); 
 
-
+    // Guarda los datos del metodo get
     $resultado = $_GET["resultado"] ?? null;
 
     require '../includes/funciones.php';
@@ -16,7 +18,7 @@
     <main class="contenedor seccion">
         <h1>Administrador de bienes raices</h1>
 
-        <?php if($resultado === "1") { ?>
+        <?php if($resultado === "1") { // Valida si se obtuvo un resultado con el metodo get ?> 
             <p class="alerta exito">Propiedad publicada correctamente</p>
         <?php } ?>
 
@@ -34,7 +36,7 @@
             </thead>
 
             <tbody>
-                <?php while( $propiedad = mysqli_fetch_assoc($consulta)) { ?>
+                <?php while( $propiedad = mysqli_fetch_assoc($consulta)) {  //Crea una propiedad en la tabla por cada propiedad que haya en la base de datos?>
                 <tr>
                     <td><?php echo $propiedad["id"] ?></td>
                     <td><?php echo $propiedad["titulo"] ?></td>

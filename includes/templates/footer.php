@@ -1,4 +1,5 @@
 <?php 
+    // Obtiene el año actual dinamicamente
     $fecha = date('Y');
 ?>
 

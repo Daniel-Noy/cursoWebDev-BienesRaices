@@ -34,7 +34,7 @@ incluirTemplate('header');
                         </div> <!--habitacion-->
                     </div>  <!--habitaciones-->
 
-                    <a href="" class="ver-anuncio || boton-amarillo-block">Ver propiedad</a>
+                    <a href="./anuncio.php" class="ver-anuncio || boton-amarillo-block">Ver propiedad</a>
                 </div> <!--informacion-->
             </div> <!--anuncio-->
 

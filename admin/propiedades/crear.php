@@ -4,12 +4,13 @@
     $db = conectarDB();
 
     //Obtener datos de una base
-    $qVendedores = "SELECT * FROM vendedores;";
-    $res_vendedores = mysqli_query($db, $qVendedores);
+    $qVendedores = "SELECT nombre, apellido FROM vendedores;";
+    $res_vendedores = mysqli_query($db, $qVendedores); // Realiza la peticion a la base de datos
 
     // Array con Mensajes de errores
     $errores = [];
 
+    // Crea la variables de forma global para poder usarlas despues
     $titulo = '';
     $precio = '';
     $descripcion = '';
@@ -29,9 +30,11 @@
         // var_dump($_POST);
         // echo '</pre>';
 
+        // Muestra los archivos que fueron mandados en un formulario
         // echo '<pre>';
-        // var_dump($_FILES);
+        // var_dump($_FILES["imagen"]);
         // echo '</pre>';
+
         // Guarda los datos obtenidos del formulario con el metodo post
         $titulo = mysqli_real_escape_string( $db, $_POST["titulo"]);
         $precio = mysqli_real_escape_string( $db, $_POST["precio"]);
@@ -41,7 +44,7 @@
         $estacionamiento = mysqli_real_escape_string( $db, $_POST["estacionamiento"]);
         $vendedor = mysqli_real_escape_string( $db, $_POST["vendedor"]);
         
-        // Asignar una imagen a una variable
+        // Asignar una imagen subida con un formulario a una variable
         $imagen = $_FILES["imagen"];
         
         // echo '<pre>';
@@ -86,16 +89,16 @@
                 
             }
 
-            // Generar nombre unico
+            // Generar nombre unico a las imagenes
             $extensionImagen = pathinfo($imagen["name"], PATHINFO_EXTENSION);
             $nombreImagen = md5( uniqid( rand(), true ) ) . ".{$extensionImagen}";
             
             // Subir la imagen al servidor
             move_uploaded_file($imagen["tmp_name"], "$carpetaImagenes/$nombreImagen");
             
-            // Insertar datos en la base de datos
+            // Query para insertar los datos en la base de datos
             $query = "INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedorId) VALUES ('{$titulo}', '{$precio}', '{$nombreImagen}', '{$descripcion}', '{$habitaciones}', '{$wc}', '{$estacionamiento}', '{$fecha}', '{$vendedor}');";
-            
+            // Realiza la peticion a la base de datos
             $resultado = mysqli_query($db, $query);
         }   
         
@@ -179,8 +182,8 @@
 
                 <select name="vendedor">
                     <option disabled selected>--Seleccionar--</option>
-                    <?php while($row = mysqli_fetch_assoc($res_vendedores)) { ?>
-                        <option <?php echo $row["id"] === $vendedor ? 'selected' : ''; ?>  value="<?php echo $row["id"]?>"> <?php echo $row["nombre"] . " " . $row["apellido"]; ?> </option>
+                    <?php while($row = mysqli_fetch_assoc($res_vendedores)) { //Obtiene a los vendores que se encuentran en la base de datos ?>
+                        <option <?php echo $row["id"] === $vendedor ? 'selected' : ''; ?>  value="<?php echo $row["id"]?>"> <?php echo "{$row["nombre"]} {$row["apellido"]}"; ?> </option>
                     <?php } ?>
                 </select>
             </fieldset>

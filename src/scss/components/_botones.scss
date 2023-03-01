@@ -21,5 +21,6 @@
     @include m.boton(v.$rojo);
 }
 .boton-rojo-block {
+    width: 100%;
     @include m.boton(v.$rojo, block);
 }

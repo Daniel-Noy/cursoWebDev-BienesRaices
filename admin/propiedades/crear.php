@@ -4,7 +4,7 @@
     $db = conectarDB();
 
     //Obtener datos de una base
-    $qVendedores = "SELECT nombre, apellido FROM vendedores;";
+    $qVendedores = "SELECT * FROM vendedores;";
     $res_vendedores = mysqli_query($db, $qVendedores); // Realiza la peticion a la base de datos
 
     // Array con Mensajes de errores

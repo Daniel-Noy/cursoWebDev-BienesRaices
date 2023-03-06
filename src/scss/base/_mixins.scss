@@ -43,6 +43,7 @@
     color: v.$blanco;
     border: 0;
     transition: background-color .1s ease;
+    cursor: pointer;
 
     &:hover {
         background-color: darken($color, $amount: 5);

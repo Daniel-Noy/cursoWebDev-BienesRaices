@@ -1,4 +1,7 @@
 <?php
+    require '../includes/funciones.php';
+    $auth = autenticarSesion($private= true);
+
     require '../includes/config/database.php';
     $db = conectarDB();
 
@@ -26,14 +29,13 @@
             $resBorrar = mysqli_query($db, $qBorrar);
 
             if($resBorrar) {
-                header('location: /admin?resultado=3');
+                header('Location: /admin?resultado=3');
             }
         }
             
 
     }
 
-    require '../includes/funciones.php';
     incluirTemplate('header');
 ?>
 

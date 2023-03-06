@@ -1,4 +1,7 @@
 <?php
+    require '../../includes/funciones.php';
+    autenticarSesion($private = true);
+
     $id = $_GET["id"]; 
     $id = filter_var($id, FILTER_VALIDATE_INT);
 
@@ -126,7 +129,7 @@
             header('Location: /admin?resultado=2');
         }
     }    
-    require '../../includes/funciones.php';
+    
     incluirTemplate('header');
 ?>
 

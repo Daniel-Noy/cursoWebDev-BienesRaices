@@ -1,4 +1,7 @@
 <?php
+    require '../../includes/funciones.php';
+    autenticarSesion($private = true);
+
     // Trae la pagina con la funcion para conectarse a la base de datos
     require "../../includes/config/database.php";
     $db = conectarDB();
@@ -106,7 +109,7 @@
             header('Location: /admin?resultado=1');
         }
     }    
-    require '../../includes/funciones.php';
+
     incluirTemplate('header');
 ?>
 

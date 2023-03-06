@@ -67,4 +67,4 @@ incluirTemplate('header');
         
     </main>
 
-    <?php  incluirTemplate('footer')?>
+    <?php  incluirTemplate('footer');?>

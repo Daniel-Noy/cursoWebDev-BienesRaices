@@ -1,6 +1,7 @@
 <?php 
-
     require './includes/funciones.php';
+    $auth = autenticarSesion();
+
     incluirTemplate('header', true);
 ?>
 
@@ -89,6 +90,5 @@
     </aside>
 
 <?php  
-    mysqli_close($db);
-
     incluirTemplate('footer');
+    mysqli_close($db);
